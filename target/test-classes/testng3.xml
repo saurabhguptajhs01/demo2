@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite1" verbose="1">
+    <!--<parameter name="first-name" value="Vayu"/>
+    <parameter name="last-name" value="Gupta"/>-->
+    <test name="Regression">
+        <classes>
+            <class name="TestNGExample.test3"/>
+        </classes>
+    </test>
+</suite>

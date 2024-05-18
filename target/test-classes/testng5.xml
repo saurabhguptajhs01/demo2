@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="suite">
+    <test name="test" group-by-instances="true">
+        <groups>
+            <run>
+                <include name="init.*"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="TestNGExample.test5"/>
+        </classes>
+    </test>
+</suite>
