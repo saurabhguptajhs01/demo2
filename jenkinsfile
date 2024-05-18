@@ -4,10 +4,7 @@ pipeline {
     stages {
         stage('Start Docker Container') {
             steps {
-                script {
-                    // Pull the Docker image
-                    sh 'docker-compose up'
-                }
+                sh 'docker-compose up'
             }
         }
 
@@ -35,10 +32,8 @@ pipeline {
 
         stage('Cleanup') {
             steps {
-                script {
-                    // Stop and remove the Docker container
-                    sh 'docker-compose down'
-                }
+                // Stop and remove the Docker container
+                sh 'docker-compose down'
             }
         }
     }
