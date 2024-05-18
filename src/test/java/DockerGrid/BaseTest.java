@@ -24,10 +24,10 @@ public class BaseTest {
     
     @BeforeSuite
     public void dockerStart() throws IOException, InterruptedException{
-        String command = "sh docker-compose up";
-        Process powerShellProcess = Runtime.getRuntime().exec(command);
-        powerShellProcess.getOutputStream().close();
-        Thread.sleep(60000);
+        //String command = "sh docker-compose up";
+        //Process powerShellProcess = Runtime.getRuntime().exec(command);
+        //powerShellProcess.getOutputStream().close();
+        //Thread.sleep(60000);
         /*String line;
         System.out.println("Standard Output");
         BufferedReader stdout = new BufferedReader(new InputStreamReader(powerShellProcess.getInputStream()));
@@ -50,9 +50,9 @@ public class BaseTest {
     
     @AfterSuite
     public void dockerEnd() throws IOException{
-        String command = "sh docker-compose down";
-        Process powerShellProcess = Runtime.getRuntime().exec(command);
-        powerShellProcess.getOutputStream().close();
+        //String command = "sh docker-compose down";
+        //Process powerShellProcess = Runtime.getRuntime().exec(command);
+        //powerShellProcess.getOutputStream().close();
     }
     @Parameters("browser")
     @BeforeMethod
