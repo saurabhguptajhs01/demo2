@@ -24,7 +24,7 @@ public class BaseTest {
     
     @BeforeSuite
     public void dockerStart() throws IOException, InterruptedException{
-        String command = "powershell.exe docker-compose up";
+        String command = "sh docker-compose up";
         Process powerShellProcess = Runtime.getRuntime().exec(command);
         powerShellProcess.getOutputStream().close();
         Thread.sleep(60000);
@@ -50,7 +50,7 @@ public class BaseTest {
     
     @AfterSuite
     public void dockerEnd() throws IOException{
-        String command = "powershell.exe docker-compose down";
+        String command = "sh docker-compose down";
         Process powerShellProcess = Runtime.getRuntime().exec(command);
         powerShellProcess.getOutputStream().close();
     }
