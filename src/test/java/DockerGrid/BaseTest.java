@@ -27,7 +27,7 @@ public class BaseTest {
         //String command = "sh docker-compose up";
         //Process powerShellProcess = Runtime.getRuntime().exec(command);
         //powerShellProcess.getOutputStream().close();
-        //Thread.sleep(60000);
+        Thread.sleep(60000);
         /*String line;
         System.out.println("Standard Output");
         BufferedReader stdout = new BufferedReader(new InputStreamReader(powerShellProcess.getInputStream()));
