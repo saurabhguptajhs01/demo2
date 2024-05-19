@@ -2,12 +2,6 @@ pipeline {
     agent any
  
     stages {
-        stage('Start Docker Container') {
-            steps {
-                sh 'docker-compose up'
-            }
-        }
-
         stage('Test') {
             steps {
                 sh "mvn clean compile test"
@@ -30,11 +24,6 @@ pipeline {
             }
         }
 
-        stage('Cleanup') {
-            steps {
-                // Stop and remove the Docker container
-                sh 'docker-compose down'
-            }
-        }
+        
     }
 }
