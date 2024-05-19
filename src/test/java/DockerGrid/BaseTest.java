@@ -69,6 +69,7 @@ public class BaseTest {
             optionsC.addArguments("--start-maximized");
             driver.set(new RemoteWebDriver(new URL(remote_url), optionsC));
             System.out.println("Browser Started : Chrome");
+            //T
         }
         
         driver.get().get("https://opensource-demo.orangehrmlive.com/");
