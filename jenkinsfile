@@ -4,9 +4,9 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                withMaven (traceability: true){
+                    echo "which mvn"
                     sh "mvn clean compile test"
-                }
+                
             }
  
             post {                
