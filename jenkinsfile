@@ -5,7 +5,7 @@ pipeline {
         stage('Test') {
             steps {
                 withMaven (traceability: true,
-                maven: 'maven_3_9_6'){
+                maven: 'maven'){
                     sh "mvn clean compile test"
                 }
             }
