@@ -27,7 +27,7 @@ pipeline {
                 always {
                     allure includeProperties: false, 
                     jdk: '', 
-                    results: [[path: 'allure-results']]    
+                    results: [[path: 'src/target/allure-results']]    
                 }               
             }
         }
