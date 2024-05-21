@@ -12,14 +12,19 @@ pipeline {
         }
         stage('Allure Reports') {
             steps {
+                sh """
+                ls -a ${WORKSPACE}
+                """
                 script {
-                    allure([
-                        includeProperties: false,
-                        jdk: '',
-                        properties: [],
-                        reportBuildPolicy: 'ALWAYS',
-                        results: [[path: "${env.WORKSPACE}/target/allure-results"]]
-                    ])
+                    ws("$workspace/allure-docker-api-usage/"){
+                        allure([
+                            includeProperties: false,
+                            jdk: '',
+                            properties: [],
+                            reportBuildPolicy: 'ALWAYS',
+                            results: [[path: "${env.WORKSPACE}/target/allure-results"]]
+                        ])
+                    }
                 }
             }
         } 
