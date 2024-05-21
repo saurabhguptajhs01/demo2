@@ -11,8 +11,11 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <!-- Define the version of Allure you want to use via the allure.version property -->
+        <allure.version>2.24.0</allure.version>
+        <aspectj.version>1.9.20.1</aspectj.version>
     </properties>
-
+    
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
@@ -44,8 +47,22 @@
             <artifactId>webdrivermanager</artifactId>
             <version>5.8.0</version>
             <scope>test</scope>
-</dependency>   
-      
+        </dependency>
+        <!-- Add allure-bom to dependency management to ensure correct versions of all the dependencies are used -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-bom</artifactId>
+            <version>${allure.version}</version>
+            <type>pom</type>
+            <!--<scope>provided</scope>-->
+        </dependency> 
+        <!-- Add necessary Allure dependencies to dependencies section -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.27.0</version>
+            <!--<scope>test</scope>-->
+        </dependency>     
     </dependencies>
     
     <build>
@@ -59,6 +76,13 @@
                         <suiteXmlFile>src\test\resources\testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
