@@ -23,13 +23,12 @@ pipeline {
                        reportName: 'HTML Report', 
                        reportTitles: '', 
                        useWrapperFileDirectly: true])
-                },
+                }
                 always {
                     allure includeProperties: false, 
                     jdk: '', 
                     results: [[path: 'allure-results']]    
-                }
-                
+                }               
             }
         }
 
