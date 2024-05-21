@@ -9,17 +9,20 @@ pipeline {
                     sh "mvn clean compile test"
                 }
             }
- 
-            post {                
-                // If Maven was able to run the tests, even if some of the test
-                // failed, record the test results and archive the jar file.
-                always {
-                    allure includeProperties: false, 
-                    jdk: '', 
-                    results: [[path: 'src/target/allure-results']]    
-                }               
-            }
         }
+        stage('Allure Reports') {
+            steps {
+                script {
+                    allure([
+                        includeProperties: false,
+                        jdk: '',
+                        properties: [],
+                        reportBuildPolicy: 'ALWAYS',
+                        results: [[path: "${env.WORKSPACE}/target/allure-results"]]
+                    ])
+                }
+            }
+        } 
 
         
     }
