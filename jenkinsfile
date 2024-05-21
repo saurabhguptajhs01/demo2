@@ -16,7 +16,7 @@ pipeline {
                 ls -a ${WORKSPACE}
                 """
                 script {
-                    ws("$workspace/allure-docker-api-usage/"){
+                    ws("$workspace/target/"){
                         allure([
                             includeProperties: false,
                             jdk: '',
