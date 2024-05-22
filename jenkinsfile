@@ -10,25 +10,24 @@ pipeline {
                 }
             }
         
-        post('Allure Reports') {
-            always {
-                sh """
-                ls -a ${WORKSPACE}
-                """
-                script {
-                    ws("$workspace/target/"){
-                        allure([
-                            includeProperties: false,
-                            jdk: '',
-                            properties: [],
-                            reportBuildPolicy: 'ALWAYS',
-                            results: [[path: "${env.WORKSPACE}/target/allure-results"]]
-                        ])
+            post('Allure Reports') {
+                always {
+                    sh """
+                    ls -a ${WORKSPACE}
+                    """
+                    script {
+                        ws("$workspace/target/"){
+                            allure([
+                                includeProperties: false,
+                                jdk: '',
+                                properties: [],
+                                reportBuildPolicy: 'ALWAYS',
+                                results: [[path: "${env.WORKSPACE}/target/allure-results"]]
+                            ])
+                        }
                     }
                 }
             }
-        } 
-
-        
+        }
     }
 }
