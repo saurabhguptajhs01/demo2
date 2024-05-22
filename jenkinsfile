@@ -9,9 +9,9 @@ pipeline {
                     sh "mvn clean compile test"
                 }
             }
-        }
-        stage('Allure Reports') {
-            steps {
+        
+        post('Allure Reports') {
+            always {
                 sh """
                 ls -a ${WORKSPACE}
                 """
