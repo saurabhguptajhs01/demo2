@@ -47,7 +47,7 @@ public class LoginPageTests extends BaseTest{
         //Copy file at destination
         FileUtils.copyFile(SrcFile, DestFile);
         Allure.attachment("data.txt", "This is attachment");
-        try (InputStream is = Files.newInputStream(Paths.get("/path/img.png"))){
+        try (InputStream is = Files.newInputStream(Paths.get(path+"\\target\\img.png"))){
             Allure.attachment("image.png", is);
         }
 
