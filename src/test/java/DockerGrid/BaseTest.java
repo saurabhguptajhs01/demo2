@@ -27,7 +27,7 @@ public class BaseTest {
         //String command = "sh docker-compose up";
         //Process powerShellProcess = Runtime.getRuntime().exec(command);
         //powerShellProcess.getOutputStream().close();
-        Thread.sleep(60000);
+        //Thread.sleep(60000);
         /*String line;
         System.out.println("Standard Output");
         BufferedReader stdout = new BufferedReader(new InputStreamReader(powerShellProcess.getInputStream()));
@@ -45,7 +45,7 @@ public class BaseTest {
         System.out.println(line);
         }
         stderr.close();*/
-        System.out.println("Done");
+        System.out.println("Done dockerStart");
     }
     
     @AfterSuite
@@ -53,6 +53,7 @@ public class BaseTest {
         //String command = "sh docker-compose down";
         //Process powerShellProcess = Runtime.getRuntime().exec(command);
         //powerShellProcess.getOutputStream().close();
+        System.out.println("Done dockerEnd");
     }
     @Parameters("browser")
     @BeforeMethod
