@@ -11,12 +11,16 @@ import io.qameta.allure.Step;
 import static io.qameta.allure.SeverityLevel.*;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
+import java.io.File;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import org.apache.commons.io.FileUtils;
 
 public class LoginPageTests extends BaseTest{
     By userName = By.name("username");
@@ -33,7 +37,21 @@ public class LoginPageTests extends BaseTest{
     @Issue("AUTH-123")
     @TmsLink("TMS-456")
     @Step("Step-1")
-    public void invalidCredentials() {
+    public void invalidCredentials() throws Exception {
+        //Convert web driver object to TakeScreenshot
+        TakesScreenshot scrShot =((TakesScreenshot)getDriver());
+        //Call getScreenshotAs method to create image file
+        File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+        //Move image file to new destination
+        String path = Paths.get("").toAbsolutePath().toString();
+        System.out.println("Working Directory = " + path);
+        File DestFile=new File(path+"\\target\\img.png");
+        //Copy file at destination
+        FileUtils.copyFile(SrcFile, DestFile);
+        /*Allure.attachment("data.txt", "This is attachment");
+        try (InputStream is = Files.newInputStream(Paths.get("/path/img.png"))){
+            Allure.attachment("image.png", is);
+        }*/
 
         getDriver().findElement(userName).sendKeys("1234");
         getDriver().findElement(passWord).sendKeys("12342");
@@ -42,10 +60,8 @@ public class LoginPageTests extends BaseTest{
         System.out.println("Actual ErrorMessage :" + actualErrorMessage);
         assertEquals(actualErrorMessage,"Invalid credentials");
 
-        /*Allure.attachment("data.txt", "This is attachment");
-        try (InputStream is = Files.newInputStream(Paths.get("/path/img.png"))){
-            Allure.attachment("image.png", is);
-        }*/
+
+        
     }
  
     @Test
